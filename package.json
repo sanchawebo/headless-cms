@@ -1,0 +1,14 @@
+{
+  "name": "stihl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simon Weber",
+  "license": "ISC"
+}
