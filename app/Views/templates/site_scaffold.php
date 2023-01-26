@@ -1,20 +1,18 @@
 <?= $this->section('title') ?>
-<?= ucfirst('Home') . ' | ' . SITE_NAME ?>
+<?= ucfirst('@:@') . ' | ' . SITE_NAME ?>
 <?= $this->endSection() ?>
+<!-- Change the html-title in the above section. -->
 
 <?php
 echo $this->extend('templates/layout');
 echo $this->section('main');
+helper('html');
 ?>
 
-<div class="container bg-white border border-secondary">
-    <h1>Home</h1>
-</div>
+<!-- Insert site code here. -->
 
 <?= $this->endSection() ?>
 
 <?= $this->section('pageScripts') ?>
-<script>
-    console.log('TEST');
-</script>
 <?= $this->endSection() ?>
+<!-- Write or import specific JS-Code in the above section. -->

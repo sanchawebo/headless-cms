@@ -29,16 +29,20 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
 
-use App\Controllers\News;
-use App\Controllers\Pages;
+use App\Controllers\Back\Tools;
 
-$routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
-$routes->get('news/(:segment)', [News::class, 'view']);
-$routes->get('news', [News::class, 'index']);
-$routes->get('pages', [Pages::class, 'index']);
-$routes->get('(:segment)', [Pages::class, 'view']);
+$routes->group('admin', ['filter' => 'group:admin,superadmin'], static function (
+	$routes
+) {
+	$routes->get('migrate', [Tools::class, 'migrate']);
+	$routes->get('seed', [Tools::class, 'seed']);
+	$routes->get('test', [Tools::class, 'test']);
+});
+
+use App\Controllers\Front\Home;
+
+$routes->get('/', [Home::class, 'index']);
 
 service('auth')->routes($routes);
 

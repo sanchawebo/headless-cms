@@ -1,0 +1,1 @@
+<small class="text-danger order-last d-block m-1 mb-2"><?= esc($error) ?></small>
